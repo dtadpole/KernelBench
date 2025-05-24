@@ -26,8 +26,8 @@ class Model(nn.Module):
         """
         return x / torch.norm(x, p=2, dim=1, keepdim=True)
 
-batch_size = 16
-dim = 16384
+batch_size = 16 * 2
+dim = 16384 * 2
 
 def get_inputs():
     x = torch.randn(batch_size, dim)

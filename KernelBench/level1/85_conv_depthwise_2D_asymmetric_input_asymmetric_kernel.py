@@ -36,7 +36,7 @@ class Model(nn.Module):
         return self.conv2d(x)
 
 # Test code
-batch_size = 16
+batch_size = 16 * 2
 in_channels = 3
 out_channels = in_channels
 kernel_size_h = 3

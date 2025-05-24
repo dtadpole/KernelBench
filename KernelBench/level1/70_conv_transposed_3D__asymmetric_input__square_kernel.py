@@ -37,7 +37,7 @@ class Model(nn.Module):
         return self.conv_transpose3d(x)
 
 # Test code
-batch_size = 16
+batch_size = 16 * 2
 in_channels = 32
 out_channels = 16
 kernel_size = 3

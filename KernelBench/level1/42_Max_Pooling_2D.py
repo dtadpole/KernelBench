@@ -30,7 +30,7 @@ class Model(nn.Module):
         """
         return self.maxpool(x)
 
-batch_size = 16
+batch_size = 16 * 2
 channels = 32
 height = 128
 width = 128

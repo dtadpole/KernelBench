@@ -31,7 +31,7 @@ class Model(nn.Module):
         """
         return self.maxpool(x)
 
-batch_size = 16
+batch_size = 16 * 2
 features = 64
 sequence_length = 128
 kernel_size = 4

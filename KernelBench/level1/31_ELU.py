@@ -28,8 +28,8 @@ class Model(nn.Module):
         """
         return F.elu(x, alpha=self.alpha)
 
-batch_size = 16
-dim = 16384
+batch_size = 16 * 2 * 2
+dim = 16384 * 2 * 2
 
 def get_inputs():
     x = torch.randn(batch_size, dim)

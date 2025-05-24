@@ -29,7 +29,7 @@ class Model(nn.Module):
         """
         return self.avg_pool(x)
 
-batch_size = 16
+batch_size = 16 * 2
 channels = 32
 depth = 64
 height = 64

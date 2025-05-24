@@ -32,7 +32,7 @@ class Model(nn.Module):
 
 
 # Test code
-batch_size = 16
+batch_size = 16 * 2
 in_channels = 32
 out_channels = 64
 kernel_size = 3

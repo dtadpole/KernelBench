@@ -197,7 +197,7 @@ if __name__ == "__main__":
     # test_measure_particular_program(2, 28)
     
     # Replace this with whatever hardware you are running on 
-    hardware_name = "L40S_matx3"
+    hardware_name = "4070_Ti_S"
 
     input(f"You are about to start recording baseline time for {hardware_name}, press Enter to continue...")
     # Systematic recording of baseline time
@@ -212,17 +212,17 @@ if __name__ == "__main__":
                           file_name=f"{hardware_name}/baseline_time_torch.json")
     
     # 2. Record Torch Compile using Inductor
-    for torch_compile_mode in ["default", "reduce-overhead", "max-autotune", "max-autotune-no-cudagraphs"]:
+    for torch_compile_mode in ["default"]: # , "reduce-overhead", "max-autotune", "max-autotune-no-cudagraphs"]:
         record_baseline_times(use_torch_compile=True, 
                               torch_compile_backend="inductor",
                               torch_compile_options=torch_compile_mode, 
                               file_name=f"{hardware_name}/baseline_time_torch_compile_inductor_{torch_compile_mode}.json")
  
     # 3. Record Torch Compile using cudagraphs
-    record_baseline_times(use_torch_compile=True, 
-                          torch_compile_backend="cudagraphs",
-                          torch_compile_options=None, 
-                          file_name=f"{hardware_name}/baseline_time_torch_compile_cudagraphs.json")
+    # record_baseline_times(use_torch_compile=True, 
+    #                       torch_compile_backend="cudagraphs",
+    #                       torch_compile_options=None, 
+    #                       file_name=f"{hardware_name}/baseline_time_torch_compile_cudagraphs.json")
     
 
 

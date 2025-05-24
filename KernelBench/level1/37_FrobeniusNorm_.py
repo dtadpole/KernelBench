@@ -24,7 +24,7 @@ class Model(nn.Module):
         norm = torch.norm(x, p='fro')
         return x / norm
 
-batch_size = 16
+batch_size = 16 * 2
 features = 64
 dim1 = 256
 dim2 = 256

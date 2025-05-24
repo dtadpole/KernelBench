@@ -32,7 +32,7 @@ class Model(nn.Module):
         return self.conv3d(x)
 
 # Test code
-batch_size = 16
+batch_size = 16 * 2
 in_channels = 3
 out_channels = 64
 kernel_size = 3

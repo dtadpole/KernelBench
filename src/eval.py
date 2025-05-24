@@ -486,8 +486,8 @@ def register_and_format_exception(
 def time_execution_with_cuda_event(
     kernel_fn: callable,
     *args,
-    num_warmup: int = 3,
-    num_trials: int = 10,
+    num_warmup: int = 25,
+    num_trials: int = 100,
     verbose: bool = True,
     device: torch.device = None,
 ) -> list[float]:
