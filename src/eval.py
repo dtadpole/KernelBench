@@ -299,6 +299,7 @@ def eval_kernel_against_ref(
     num_perf_trials: int = 10,
     verbose: bool = False,
     measure_performance: bool = False,
+    measure_performance_ref: bool = False,
     build_dir: os.PathLike = None,
     device: torch.device = torch.cuda.current_device() if torch.cuda.is_available() else None, # have to run on GPU
 ) -> KernelExecResult:
@@ -449,6 +450,20 @@ def eval_kernel_against_ref(
                     print(f"[Eval] Performance Stats: {runtime_stats}")
                 kernel_exec_result.runtime = runtime_stats["mean"]
                 kernel_exec_result.runtime_stats = runtime_stats
+
+                if measure_performance_ref:
+                    elapsed_times_ref = time_execution_with_cuda_event(
+                        original_model,
+                        *inputs,
+                        num_trials=num_perf_trials,
+                        verbose=verbose,
+                        device=device,
+                    )
+                    runtime_stats_ref = get_timing_stats(elapsed_times_ref, device=device)
+                    if verbose:
+                        print(f"[Eval] Performance Stats (Reference): {runtime_stats_ref}")
+                    kernel_exec_result.metadata["reference_runtime_stats"] = runtime_stats_ref
+
         except Exception as e:
             if verbose:
                 print(f"[Eval] Error in Measuring Performance: {e}")
